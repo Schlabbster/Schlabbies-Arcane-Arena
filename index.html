@@ -5,29 +5,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <!-- Primary SEO -->
-  <title>Schlabbies Arcane Arena - VTT & TTRPG Magic Tools (Sigils, Cards)</title>
+  <title>Schlabbies Arcane Arena - VTT & TTRPG Tools (Sigils, Cards, NPCs)</title>
   <meta name="description" content="Schlabbies Arcane Arena: a hub of free VTT and TTRPG web tools including a Magic Sigil Generator, Arcane Card Engine, and Schlabbies NPC Foundry. Create spell visuals, tokens, story prompts, encounters, and fully fleshed-out NPCs for fast session prep." />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <meta name="theme-color" content="#0a0d16" />
+  <meta name="theme-color" content="#070A12" />
 
-  <!-- Canonical (IMPORTANT: replace with your actual hub URL once deployed) -->
+  <!-- Canonical (replace with your actual hub URL once deployed) -->
   <link rel="canonical" href="https://schlabbster.github.io/Schlabbies-Arcane-Arena/" />
 
-  <!-- Open Graph (Discord/Facebook/etc) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Schlabbies Arcane Arena - VTT & TTRPG Magic Tools" />
-  <meta property="og:description" content="Free web tools for virtual tabletops and TTRPGs: Magic Sigil Generator, Arcane Card Engine, and Schlabbies NPC Foundry. Make spell visuals, tokens, story prompts, encounters, and procedural NPCs." />
+  <meta property="og:title" content="Schlabbies Arcane Arena - VTT & TTRPG Tools" />
+  <meta property="og:description" content="Free web tools for virtual tabletops and TTRPGs: Magic Sigil Generator, Arcane Card Engine, and Schlabbies NPC Foundry." />
   <meta property="og:url" content="https://schlabbster.github.io/Schlabbies-Arcane-Arena/" />
-  <!-- Optional: add an og:image once you have a banner in the repo -->
   <meta property="og:image" content="https://schlabbster.github.io/Schlabbies-Arcane-Arena/og-banner.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Schlabbies Arcane Arena - VTT & TTRPG Magic Tools" />
-  <meta name="twitter:description" content="Magic Sigil Generator + Arcane Card Engine + Schlabbies NPC Foundry. Export-ready spell visuals, tokens, story prompts, encounter generators, and procedural NPCs for VTT/TTRPGs." />
+  <meta name="twitter:title" content="Schlabbies Arcane Arena - VTT & TTRPG Tools" />
+  <meta name="twitter:description" content="Magic Sigil Generator + Arcane Card Engine + Schlabbies NPC Foundry." />
   <meta name="twitter:image" content="https://schlabbster.github.io/Schlabbies-Arcane-Arena/og-banner.png" />
 
-  <!-- Optional: help search engines understand language/region -->
   <meta http-equiv="content-language" content="en" />
 
   <!-- Structured data (JSON-LD) -->
@@ -37,13 +35,8 @@
     "@type": "WebSite",
     "name": "Schlabbies Arcane Arena",
     "url": "https://schlabbster.github.io/Schlabbies-Arcane-Arena/",
-    "description": "A hub of VTT and TTRPG web tools including a Magic Sigil Generator and Arcane Card Engine.",
-    "inLanguage": "en",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://schlabbster.github.io/Schlabbies-Arcane-Arena/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "A hub of VTT and TTRPG web tools including a Magic Sigil Generator, Arcane Card Engine, and Schlabbies NPC Foundry.",
+    "inLanguage": "en"
   }
   </script>
 
@@ -58,22 +51,21 @@
         "position": 1,
         "url": "https://schlabbster.github.io/Arcane-Card-Engine/",
         "name": "Arcane Card Engine",
-        "description": "Create stylized arcane cards for spell decks, VTT handouts, and TTRPG UI elements."
+        "description": "A browser-based fantasy encounter and plot/storyhook generator for TTRPGs and VTT play."
       },
       {
         "@type": "ListItem",
         "position": 2,
         "url": "https://schlabbster.github.io/Magic-Sigil-Generator/",
-        "name": "Magic Sigil Generator",
-        "description": "Generate procedural magic sigils and export-ready visuals for spells, tokens, and VTT effects."
-      }
-      ,
+        "name": "Arcane Sigil Generator",
+        "description": "Procedural generator for animated arcane seals and magical glyphs with PNG/GIF/MP4 export."
+      },
       {
         "@type": "ListItem",
         "position": 3,
         "url": "https://schlabbster.github.io/Schlabbies-NPC-Foundry/",
         "name": "Schlabbies NPC Foundry",
-        "description": "A fast procedural NPC generator for D&D that creates names, statblocks, personalities, backstories, and plot hooks with optional race, class, and seed control."
+        "description": "A fast procedural NPC generator for D&D: names, statblocks, personalities, backstories, and plot hooks with optional race, class, and seed control."
       }
     ]
   }
@@ -81,171 +73,473 @@
 
   <style>
     :root{
-      --bg0:#06070b;
-      --bg1:#0a0d16;
-      --card:#0f1424cc;
-      --card2:#0f1424aa;
-      --border:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --accent:rgba(160,210,255,.95);
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
+      --bg0:#050711;
+      --bg1:#070A12;
+      --panel: rgba(14, 18, 34, .66);
+      --panel2: rgba(10, 12, 24, .40);
+      --border: rgba(255,255,255,.10);
+      --border2: rgba(170,220,255,.22);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --soft: rgba(255,255,255,.08);
+      --glowA: rgba(125, 190, 255, .18);
+      --glowB: rgba(200, 140, 255, .14);
+      --glowC: rgba(120, 255, 220, .10);
+      --accent: rgba(170, 225, 255, .96);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 20px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
-      color:var(--text);
-      font: 16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
       background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(120,170,255,.14), transparent 55%),
-        radial-gradient(900px 600px at 85% 25%, rgba(170,120,255,.12), transparent 58%),
-        radial-gradient(1100px 750px at 55% 95%, rgba(110,255,220,.07), transparent 55%),
+        radial-gradient(1200px 700px at 12% 8%, var(--glowA), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, var(--glowB), transparent 58%),
+        radial-gradient(1100px 750px at 55% 100%, var(--glowC), transparent 56%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
+
     .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 40px 18px 26px;
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 44px 18px 26px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
       gap: 26px;
     }
-    header{display:flex;flex-direction:column;gap:10px;padding:18px 6px 6px}
-    .title{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .sigil{
-      width:42px;height:42px;border-radius:14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(120,170,255,.28), transparent 55%),
-        linear-gradient(140deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      box-shadow: 0 0 0 1px rgba(0,0,0,.18) inset, 0 18px 55px rgba(100,140,255,.08);
-      position:relative;overflow:hidden;
-    }
-    .sigil:before{
-      content:"";position:absolute;inset:-40%;
-      background: conic-gradient(from 220deg, transparent 0 25%, rgba(160,210,255,.18) 35%, transparent 55%, rgba(190,150,255,.12) 70%, transparent 100%);
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin{to{transform:rotate(360deg)}}
-    h1{margin:0;font-size:clamp(28px,3.4vw,44px);letter-spacing:.2px}
-    .subtitle{margin:0;color:var(--muted);max-width:72ch}
 
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{
-      grid-column: span 12;
-      position:relative;
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    /* HERO */
+    .hero{
+      position: relative;
+      border: 1px solid var(--soft);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 22px 22px 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
-      overflow:hidden;
-      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-      isolation:isolate;
+      overflow: hidden;
+      isolation: isolate;
     }
-    .card a{display:block;padding:22px 22px 18px;color:inherit;text-decoration:none;height:100%}
-    .card:before{
-      content:"";position:absolute;inset:-1px;
+
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
       background:
-        radial-gradient(600px 240px at 20% 0%, rgba(130,170,255,.20), transparent 58%),
-        radial-gradient(520px 260px at 80% 40%, rgba(190,150,255,.14), transparent 60%),
-        linear-gradient(180deg, var(--card), var(--card2));
-      z-index:-1;
+        radial-gradient(900px 350px at 20% 0%, rgba(125,190,255,.22), transparent 60%),
+        radial-gradient(700px 380px at 85% 35%, rgba(210,145,255,.16), transparent 60%),
+        radial-gradient(900px 520px at 50% 120%, rgba(120,255,220,.12), transparent 62%),
+        linear-gradient(180deg, var(--panel), var(--panel2));
+      z-index:-2;
+      filter: saturate(1.04);
     }
-    .card:after{
-      content:"";position:absolute;inset:-60px;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.12), transparent 55%);
-      opacity:0;transition: opacity .18s ease;z-index:-1;
+    .hero:after{
+      content:"";
+      position:absolute; inset:-80px;
+      background: conic-gradient(from 220deg,
+        transparent 0 20%,
+        rgba(170,225,255,.14) 26%,
+        transparent 38%,
+        rgba(220,170,255,.10) 60%,
+        transparent 72%,
+        rgba(170,255,240,.08) 86%,
+        transparent 100%);
+      opacity:.55;
+      z-index:-3;
+      animation: slowspin 24s linear infinite;
     }
-    .card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(160,210,255,.26);
-      box-shadow: 0 24px 80px rgba(0,0,0,.62), 0 0 0 1px rgba(160,210,255,.08) inset;
-    }
-    .card:hover:after{opacity:.55}
+    @keyframes slowspin{ to { transform: rotate(360deg); } }
 
-    .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.80);font-size:12px;letter-spacing:.3px;user-select:none;
+    .heroTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
     }
-    .badge i{width:8px;height:8px;border-radius:99px;background: rgba(160,210,255,.75);box-shadow:0 0 16px rgba(160,210,255,.35)}
-    .name{margin:0;font-size:22px;letter-spacing:.2px}
-    .desc{margin:0 0 14px;color:var(--muted);max-width:70ch}
-    .meta{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-      margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);
-      color: rgba(255,255,255,.70);font-size:13px;
-    }
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.82);
-    }
-    .arrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-weight:600;letter-spacing:.2px}
-    .arrow svg{width:18px;height:18px;opacity:.9}
 
-    /* Simple FAQ for extra SEO content */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      min-width: 240px;
+    }
+
+    .mark{
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255,255,255,.22), transparent 50%),
+        radial-gradient(circle at 72% 70%, rgba(130,190,255,.34), transparent 60%),
+        linear-gradient(140deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 0 0 1px rgba(0,0,0,.18) inset, 0 18px 55px rgba(110,160,255,.10);
+      position: relative;
+      overflow: hidden;
+    }
+    .mark svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.75; }
+    .mark:before{
+      content:"";
+      position:absolute; inset:-35%;
+      background: conic-gradient(from 210deg, transparent 0 25%, rgba(170,225,255,.18) 35%, transparent 58%, rgba(215,165,255,.12) 72%, transparent 100%);
+      animation: slowspin 14s linear infinite;
+      filter: blur(.2px);
+      opacity: .9;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(28px, 3.3vw, 44px);
+      letter-spacing: .2px;
+      line-height: 1.1;
+    }
+
+    .tagline{
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .heroActions{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .chip i{
+      width: 8px; height: 8px;
+      border-radius: 99px;
+      background: rgba(170,225,255,.75);
+      box-shadow: 0 0 16px rgba(170,225,255,.35);
+    }
+
+    /* GRID OF SQUARE TILES */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .tile{
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, filter .18s ease;
+      isolation: isolate;
+    }
+
+    .tile a{
+      color:inherit;
+      text-decoration:none;
+      display:flex;
+      flex-direction: column;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      padding: 0;
+    }
+
+    /* animated arcane frame */
+    .tile:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 260px at 20% 0%, rgba(125,190,255,.22), transparent 60%),
+        radial-gradient(520px 260px at 80% 40%, rgba(210,145,255,.14), transparent 62%),
+        linear-gradient(180deg, rgba(14,18,34,.75), rgba(10,12,24,.42));
+      z-index:-2;
+    }
+    .tile:after{
+      content:"";
+      position:absolute; inset:-60px;
+      background: conic-gradient(from 180deg,
+        rgba(170,225,255,.12),
+        transparent 18%,
+        rgba(220,170,255,.10),
+        transparent 52%,
+        rgba(170,255,240,.08),
+        transparent 88%);
+      opacity: 0;
+      transition: opacity .18s ease;
+      z-index:-3;
+      filter: blur(.2px);
+      animation: slowspin 26s linear infinite;
+    }
+
+    .tile:hover{
+      transform: translateY(-3px);
+      border-color: var(--border2);
+      box-shadow: 0 26px 90px rgba(0,0,0,.60), 0 0 0 1px rgba(170,225,255,.08) inset;
+    }
+    .tile:hover:after{ opacity: .85; }
+
+    .tileTop{
+      padding: 16px 16px 0;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      letter-spacing: .25px;
+      user-select:none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      white-space: nowrap;
+    }
+    .label i{
+      width: 8px; height: 8px;
+      border-radius: 99px;
+      background: rgba(170,225,255,.75);
+      box-shadow: 0 0 16px rgba(170,225,255,.35);
+    }
+
+    .glyph{
+      width: 58px; height: 58px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(170,225,255,.24), transparent 62%),
+        linear-gradient(140deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: 0 0 0 1px rgba(0,0,0,.18) inset;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .glyph svg{ width: 34px; height: 34px; opacity: .92; }
+    .glyph .ring{ opacity: .35; }
+
+    .tileBody{
+      padding: 12px 16px 0;
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    .tileTitle{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: .2px;
+      line-height: 1.15;
+    }
+    .tileDesc{
+      margin:0;
+      color: rgba(255,255,255,.70);
+      font-size: 14px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tags{
+      margin-top: auto;
+      padding: 0 16px 12px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .ctaRow{
+      padding: 12px 16px 16px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(170,225,255,.18);
+      background: rgba(170,225,255,.08);
+      color: rgba(210,240,255,.96);
+      font-weight: 650;
+      letter-spacing: .15px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .tile:hover .cta{
+      background: rgba(170,225,255,.12);
+      border-color: rgba(170,225,255,.30);
+      transform: translateY(-1px);
+    }
+    .cta svg{ width: 18px; height: 18px; opacity: .95; }
+
+    .smallNote{
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+
+    /* FAQ */
     .faq{
       margin-top: 4px;
-      padding: 18px 6px 0;
-    }
-    .faq h2{margin:0 0 10px;font-size:18px}
-    details{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
       background: rgba(0,0,0,.16);
-      padding: 12px 14px;
+      padding: 14px 16px;
+    }
+    .faq h2{ margin: 0 0 10px; font-size: 16px; letter-spacing: .2px; color: rgba(255,255,255,.86); }
+    details{
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+      padding: 10px 12px;
       margin: 10px 0;
     }
-    summary{cursor:pointer; font-weight:600; color: rgba(255,255,255,.86)}
-    details p{margin:10px 0 0; color: rgba(255,255,255,.74); max-width: 92ch}
+    summary{ cursor:pointer; font-weight: 650; color: rgba(255,255,255,.86); }
+    details p{ margin: 10px 0 0; color: rgba(255,255,255,.72); max-width: 92ch; }
 
     footer{
-      margin-top:auto;border-top:1px solid rgba(255,255,255,.08);
-      padding:18px 6px 10px;display:flex;align-items:center;justify-content:space-between;
-      gap:10px;flex-wrap:wrap;color: rgba(255,255,255,.65);font-size:13px;
+      margin-top:auto;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 18px 6px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
     }
-    footer a{color: rgba(160,210,255,.9);text-decoration:none;border-bottom:1px dashed rgba(160,210,255,.35)}
-    footer a:hover{color: rgba(210,235,255,.95);border-bottom-color: rgba(210,235,255,.6)}
-    @media (min-width: 860px){.card{grid-column: span 6;}}
+    footer a{
+      color: rgba(170,225,255,.92);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(170,225,255,.38);
+    }
+    footer a:hover{
+      color: rgba(220,245,255,.98);
+      border-bottom-color: rgba(220,245,255,.62);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .hero:after, .mark:before, .tile:after{ animation: none !important; }
+      .tile, .cta{ transition: none !important; }
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
-      <div class="title">
-        <div class="sigil" aria-hidden="true"></div>
-        <h1>Schlabbies Arcane Arena</h1>
-      </div>
+    <header class="hero" aria-label="Schlabbies Arcane Arena">
+      <div class="heroTop">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="20" stroke="rgba(255,255,255,.60)" stroke-width="2"/>
+              <circle cx="32" cy="32" r="12" stroke="rgba(170,225,255,.85)" stroke-width="2"/>
+              <path d="M32 12 L40 32 L32 52 L24 32 Z" stroke="rgba(220,170,255,.75)" stroke-width="2" fill="none"/>
+              <path d="M12 32 H52" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+              <path d="M32 12 V52" stroke="rgba(255,255,255,.28)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Schlabbies Arcane Arena</h1>
+            <p class="tagline">
+              A compact hub of <strong>VTT</strong> &amp; <strong>TTRPG</strong> tools for fast session prep:
+              generate <strong>sigils</strong>, craft <strong>story hooks</strong>, and forge <strong>procedural NPCs</strong>.
+            </p>
+          </div>
+        </div>
 
-      <p class="subtitle">
-        A portal to my <strong>VTT</strong> and <strong>TTRPG</strong> web tools: generate magical visuals, spell cards, story prompts, and <strong>procedural NPCs</strong> for fast session prep.
-      </p>
+        <div class="heroActions" aria-label="Highlights">
+          <span class="chip"><i></i>Foundry / Roll20 ready</span>
+          <span class="chip"><i></i>Export-friendly assets</span>
+          <span class="chip"><i></i>Fast inspiration &amp; prep</span>
+        </div>
+      </div>
     </header>
 
     <main class="grid" aria-label="Projects">
-      <section class="card">
+      <!-- Arcane Card Engine -->
+      <section class="tile">
         <a href="https://schlabbster.github.io/Arcane-Card-Engine/" target="_blank" rel="noopener"
            aria-label="Open Arcane Card Engine">
-          <div class="topline">
-            <h2 class="name">Arcane Card Engine (Alpha)</h2>
-            <span class="badge"><i></i>Story Hooks/Encounters</span>
+          <div class="tileTop">
+            <span class="label"><i></i>Story Hooks</span>
+            <div class="glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M9 8h6M9 11h6M9 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                <circle class="ring" cx="12" cy="12" r="10" stroke="rgba(170,225,255,.55)" stroke-width="1.6"/>
+              </svg>
+            </div>
           </div>
-          <p class="desc">
-            The <strong>Arcane Card Engine</strong> is a browser-based fantasy <strong>encounter and plot-/storyhook generator</strong> for TTRPGs and VTT play.
-            It creates structured story prompts using modular Major & Minor decks, themes, archetypes, and optional reversals.
-            Designed for fast inspiration, session prep, and <strong>expandable narrative worldbuilding</strong>.</p>
-          <div class="meta">
-            <span class="pill">Prompts • Plothooks • Encounters</span>
-            <span class="arrow">
-              Open tool
+
+          <div class="tileBody">
+            <h2 class="tileTitle">Arcane Card Engine <span class="smallNote">(Alpha)</span></h2>
+            <p class="tileDesc">
+              A browser-based fantasy <strong>encounter</strong> and <strong>plot / story-hook generator</strong>.
+              Build structured prompts using modular decks, themes, archetypes, and optional reversals—great for quick inspiration and expandable narrative worldbuilding.
+            </p>
+          </div>
+
+          <div class="tags" aria-label="Keywords">
+            <span class="tag">Prompts</span>
+            <span class="tag">Plothooks</span>
+            <span class="tag">Encounters</span>
+          </div>
+
+          <div class="ctaRow">
+            <span class="smallNote">Instant inspiration</span>
+            <span class="cta">
+              Enter Arena
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M14 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -255,22 +549,40 @@
         </a>
       </section>
 
-      <section class="card">
+      <!-- Sigil Generator -->
+      <section class="tile">
         <a href="https://schlabbster.github.io/Magic-Sigil-Generator/" target="_blank" rel="noopener"
-           aria-label="Open Magic Sigil Generator">
-          <div class="topline">
-            <h2 class="name">Arcane Sigil Generator</h2>
-            <span class="badge"><i></i> Sigils</span>
+           aria-label="Open Arcane Sigil Generator">
+          <div class="tileTop">
+            <span class="label"><i></i>Sigils</span>
+            <div class="glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M12 3.5v17M3.5 12h17" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+                <path d="M12 6l4.5 6-4.5 6-4.5-6 4.5-6Z" stroke="rgba(220,170,255,.85)" stroke-width="2" fill="none"/>
+                <circle class="ring" cx="12" cy="12" r="10" stroke="rgba(170,225,255,.55)" stroke-width="1.6"/>
+              </svg>
+            </div>
           </div>
-          <p class="desc">
-            Procedural Sigil Generator is a lightweight, browser-based tool for creating <strong>animated arcane seals and magical glyphs</strong>.
-            Exports include <strong>PNG, GIF, and MP4</strong>, making it ideal for VTT spell assets and TTRPG visuals.
-            It lets users control templates, symmetry, complexity, text rings, and layered effects with deterministic seeds.
-          </p>
-          <div class="meta">
-            <span class="pill">Sigils • Tokens • Procedural</span>
-            <span class="arrow">
-              Open tool
+
+          <div class="tileBody">
+            <h2 class="tileTitle">Arcane Sigil Generator</h2>
+            <p class="tileDesc">
+              Procedural sigils, seals, and glyphs—built for <strong>VTT spell assets</strong> and TTRPG visuals.
+              Control templates, symmetry, complexity, text rings, and layered effects, then export as <strong>PNG, GIF, or MP4</strong>.
+            </p>
+          </div>
+
+          <div class="tags" aria-label="Keywords">
+            <span class="tag">Procedural</span>
+            <span class="tag">Export</span>
+            <span class="tag">Tokens</span>
+          </div>
+
+          <div class="ctaRow">
+            <span class="smallNote">Summon visuals</span>
+            <span class="cta">
+              Cast Sigil
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M14 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -280,23 +592,40 @@
         </a>
       </section>
 
-      <section class="card">
-        <!-- TODO: If your URL differs, replace the href below -->
+      <!-- NPC Foundry -->
+      <section class="tile">
         <a href="https://schlabbster.github.io/Schlabbies-NPC-Foundry/" target="_blank" rel="noopener"
            aria-label="Open Schlabbies NPC Foundry">
-          <div class="topline">
-            <h2 class="name">Schlabbies NPC Foundry</h2>
-            <span class="badge"><i></i> NPCs</span>
+          <div class="tileTop">
+            <span class="label"><i></i>NPCs</span>
+            <div class="glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4Z" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M4 20c1.6-3.2 4.5-5 8-5s6.4 1.8 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+                <circle class="ring" cx="12" cy="12" r="10" stroke="rgba(170,225,255,.55)" stroke-width="1.6"/>
+              </svg>
+            </div>
           </div>
-          <p class="desc">
-            A fast, <strong>procedural NPC generator for D&amp;D</strong> that creates fully fleshed-out characters in seconds.
-            Generate names, statblocks, personalities, backstories, and plot hooks — with optional race, class, and seed control.
-            Built for quick session prep, VTT integration, and effortless encounter improvisation.
-          </p>
-          <div class="meta">
-            <span class="pill">Procedural • D&amp;D • NPC Generator</span>
-            <span class="arrow">
-              Open tool
+
+          <div class="tileBody">
+            <h2 class="tileTitle">Schlabbies NPC Foundry</h2>
+            <p class="tileDesc">
+              A fast, <strong>procedural NPC generator for D&amp;D</strong> that creates fully fleshed-out characters in seconds.
+              Generate names, statblocks, personalities, backstories, and plot hooks — with optional race, class, and seed control.
+              Built for quick session prep, VTT integration, and effortless encounter improvisation.
+            </p>
+          </div>
+
+          <div class="tags" aria-label="Keywords">
+            <span class="tag">Procedural Generation</span>
+            <span class="tag">D&amp;D Utility</span>
+            <span class="tag">NPC Generator</span>
+          </div>
+
+          <div class="ctaRow">
+            <span class="smallNote">Forge characters</span>
+            <span class="cta">
+              Open Foundry
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M14 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -308,27 +637,19 @@
     </main>
 
     <section class="faq" aria-label="FAQ">
-      <h2>FAQ</h2>
-
+      <h2>Quick FAQ</h2>
       <details>
-        <summary>What is Schlabbies Arcane Arena?</summary>
+        <summary>What is this page?</summary>
         <p>
-          It’s a lightweight hub page that links to my browser-based TTRPG tools - currently the Arcane Card Engine and the Magic Sigil Generator - designed for VTT and tabletop use.
+          A lightweight landing page that helps people discover my VTT/TTRPG tools via search and share links.
+          Each tile opens a project instantly in a new tab.
         </p>
       </details>
-
       <details>
-        <summary>Are these tools free to use?</summary>
+        <summary>What VTTs does this support?</summary>
         <p>
-          Yes - they’re hosted on GitHub Pages and meant to be easy to access and share with your group.
-          If you’d like to support development, you can do so via Ko-fi below.
-        </p>
-      </details>
-
-      <details>
-        <summary>What virtual tabletops work with these?</summary>
-        <p>
-          Anything that accepts images/handouts/MP4 (for example Foundry VTT, Roll20, Owlbear Rodeo, etc.). Export from the tools and use the assets in your preferred VTT workflow.
+          Anything that accepts images, handouts, or videos (Foundry VTT, Roll20, Owlbear Rodeo, etc.).
+          Export from the tools and drop the assets into your workflow.
         </p>
       </details>
     </section>
